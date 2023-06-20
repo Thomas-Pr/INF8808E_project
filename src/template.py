@@ -11,7 +11,7 @@ THEME = {
     'accent_font_family': 'Roboto Slab',
     'dark_color': '#2A2B2E',
     'pale_color': '#DFD9E2',
-    'line_chart_color': 'black',
+    'color_way': ["#006233","#0011bb","#ff0000","#43A1D5"],
     'label_font_size': 14,
     'label_background_color': '#ffffff',
     'colorscale': 'RdBu'
@@ -37,7 +37,7 @@ def create_custom_theme():
             ),
             hovermode='closest',
 
-            colorway=[THEME['line_chart_color']],
+            colorway=THEME['color_way'],
             colorscale={'sequential':THEME['colorscale']}
         )
     )

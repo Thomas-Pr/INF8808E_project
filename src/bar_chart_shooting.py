@@ -39,6 +39,12 @@ def clean_split_concat(df_init):
 
 
 #Figure
+def mask_data(mask):
+    df = prep_data() 
+    mask_title = "Efficiency in offensive actions during the competition" if mask == "Overall" else "Average efficiency in offensive actions per match"
+    df = df[df["View"]==mask]
+    return df, mask_title
+
 def get_figure(df,mask_title):
     fig = px.bar(data_frame = df, x="Squad", y="value",color='Shots',
                     color_discrete_map= {"Missed Shots on Target":"gold" ,"Missed Shots not on Target":"tomato","Goals":"limegreen"},
