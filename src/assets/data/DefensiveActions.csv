@@ -1,0 +1,95 @@
+"Squad","Player","Pos","Age","90s","Tackles-Tkl","Tackles-TklW","Tackles-Def3rd","Tackles-Mid3rd","Tackles-Att3rd","Challenges-Tkl","Challenges-Att","Challenges-Tkl","Challenges-Lost","Blocks","Blocks-Sh","Blocks-Pass","Int","Tkl+Int","Clr","Err"
+"Morocco","Sofyan Amrabat","MF",25,7.3,16,10,15,1,0,9,14,64.3,5,2,1,1,6,22,10,0
+"Morocco","Hakim Ziyech","FW",29,7.1,10,7,4,5,1,4,11,36.4,7,10,0,10,10,20,4,1
+"Morocco","Achraf Hakimi","DF",23,7,26,17,15,10,1,17,28,60.7,11,7,1,6,9,35,12,0
+"Morocco","Youssef EnNesyri","FW",25,6,3,2,2,1,0,0,2,0,2,5,0,5,1,4,11,0
+"Morocco","Sofiane Boufal","FW",28,5.3,11,5,7,4,0,3,6,50,3,9,0,9,2,13,1,0
+"Morocco","Yassine Bounou","GK",31,6.3,0,0,0,0,0,0,0,,0,0,0,0,0,0,5,0
+"Morocco","Azzedine Ounahi","MF",22,6.3,9,8,4,5,0,7,9,77.8,2,5,1,4,7,16,2,0
+"Morocco","Romain Saiss","DF",32,5.2,5,2,2,2,1,2,5,40,3,3,1,2,3,8,30,1
+"Morocco","Noussair Mazraoui","DF",24,4.1,14,9,8,4,2,8,11,72.7,3,6,1,5,1,15,16,0
+"Morocco","Selim Amallah","MF",25,4.5,13,9,4,6,3,6,11,54.5,5,6,1,5,8,21,3,0
+"Morocco","Nayef Aguerd","DF",26,3.9,4,2,4,0,0,2,2,100,0,3,2,1,4,8,12,0
+"Morocco","Jawad El Yamiq","DF",30,3.4,4,2,4,0,0,3,3,100,0,6,6,0,5,9,17,0
+"Morocco","Yahya Attiat Allah","DF",27,3.5,4,2,3,1,0,3,7,42.9,4,4,0,4,0,4,15,0
+"Morocco","Achraf Dari","DF",23,2.1,1,0,1,0,0,1,3,33.3,2,7,4,3,5,6,9,0
+"Morocco","Abdelhamid Sabiri","MF",25,2,3,1,1,2,0,2,6,33.3,4,3,1,2,5,8,3,0
+"Morocco","Munir","GK",33,1,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"Morocco","Bilal El Khannous","MF",18,0.6,0,0,0,0,0,0,1,0,1,1,0,1,0,0,2,0
+"Morocco","Abdessamad Ezzalzouli","FW,MF",20,1,3,2,2,1,0,1,1,100,0,4,1,3,0,3,3,0
+"Morocco","Zakaria Aboukhlal","FW,MF",22,0.9,1,1,0,1,0,0,1,0,1,2,0,2,1,2,1,0
+"Morocco","Abderrazak Hamdallah","FW",31,0.8,0,0,0,0,0,0,1,0,1,0,0,0,0,0,2,0
+"Morocco","Walid Cheddira","FW",24,0.7,1,0,0,1,0,0,0,,0,0,0,0,0,1,2,0
+"Morocco","Badr Banoun","DF",28,0.6,0,0,0,0,0,0,0,,0,1,0,1,1,1,3,0
+"Morocco","Ilias Chair","MF",24,0.5,1,0,0,1,0,0,1,0,1,0,0,0,0,1,0,0
+"Morocco","Anass Zaroury","FW",21,0.3,0,0,0,0,0,0,0,,0,2,0,2,0,0,0,0
+"Morocco","Yahya Jabrane","MF",30,0.2,,0,,,,,,,,,,,0,,,
+"France","Aurelien Tchouameni","MF",22,6.9,11,4,4,6,1,3,7,42.9,4,3,1,2,14,25,6,0
+"France","Kylian Mbappe","FW",23,6.6,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"France","Hugo Lloris","GK",35,6.3,0,0,0,0,0,0,0,,0,0,0,0,0,0,3,0
+"France","Antoine Griezmann","MF",31,6,14,8,9,5,0,3,5,60,2,8,3,5,8,22,7,0
+"France","Raphael Varane","DF",29,5.8,1,0,0,1,0,0,2,0,2,4,3,1,6,7,15,0
+"France","Ousmane Dembele","FW",25,4.8,11,6,5,3,3,6,9,66.7,3,3,0,3,2,13,0,0
+"France","Olivier Giroud","FW",35,4.7,1,0,0,1,0,0,3,0,3,1,0,1,1,2,5,0
+"France","Theo Hernandez","DF",24,5.6,16,13,11,5,0,10,15,66.7,5,5,2,3,4,20,8,1
+"France","Adrien Rabiot","MF",27,5.4,12,9,4,6,2,4,7,57.1,3,12,2,10,10,22,6,0
+"France","Jules Kounde","DF",23,5.3,11,8,9,1,1,7,12,58.3,5,7,4,3,5,16,8,0
+"France","Dayot Upamecano","DF",23,5.3,11,7,10,1,0,6,6,100,0,5,4,1,6,17,13,0
+"France","Ibrahima Konate","DF",23,3.3,15,6,11,4,0,5,5,100,0,5,2,3,7,22,16,0
+"France","Youssouf Fofana","MF",23,2.5,8,5,3,4,1,1,4,25,3,6,1,5,3,11,0,0
+"France","Randal Kolo Muani","FW",23,2,7,5,1,3,3,3,3,100,0,1,0,1,1,8,1,0
+"France","Kingsley Coman","FW,MF",26,1.9,3,2,1,2,0,1,2,50,1,3,0,3,2,5,1,0
+"France","Eduardo Camavinga","DF",19,1.6,14,9,7,5,2,4,5,80,1,4,0,4,3,17,6,0
+"France","Axel Disasi","DF",24,1,3,2,1,2,0,0,2,0,2,0,0,0,3,6,4,0
+"France","Steve Mandanda","GK",37,1,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"France","Benjamin Pavard","DF",26,1,0,0,0,0,0,0,0,,0,3,0,3,1,1,0,0
+"France","Matteo Guendouzi","FW,MF",23,0.9,1,1,0,1,0,0,1,0,1,0,0,0,0,1,0,0
+"France","Jordan Veretout","MF",29,0.7,2,0,0,2,0,1,1,100,0,0,0,0,0,2,2,0
+"France","Lucas Hernandez","DF",26,0.1,1,1,0,1,0,1,2,50,1,0,0,0,0,1,0,0
+"France","Marcus Thuram","FW,MF",24,1.7,3,2,1,1,1,0,0,,0,2,0,2,0,3,2,0
+"France","William Saliba","DF",21,0.3,0,0,0,0,0,0,0,,0,1,0,1,0,0,0,0
+"Croatia","Josko Gvardiol","DF",20,7.7,9,6,5,4,0,5,8,62.5,3,8,4,4,11,20,37,0
+"Croatia","Dominik Livakovic","GK",27,7.7,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0
+"Croatia","Ivan Perisic","FW,DF",33,7.4,7,4,3,4,0,5,7,71.4,2,9,1,8,7,14,12,0
+"Croatia","Luka Modric","MF",36,7.3,16,10,4,11,1,7,14,50,7,4,2,2,10,26,3,0
+"Croatia","Mateo Kovacic","MF",28,7.1,24,17,10,11,3,4,11,36.4,7,4,1,3,4,28,5,0
+"Croatia","Andrej Kramaric","FW,MF",30,5.3,3,2,0,1,2,0,1,0,1,6,0,6,0,3,0,0
+"Croatia","Josip Juranovic","DF",26,6.7,12,8,9,3,0,8,8,100,0,5,3,2,3,15,15,0
+"Croatia","Dejan Lovren","DF",32,6.7,7,2,5,1,1,3,5,60,2,7,5,2,6,13,29,0
+"Croatia","Marcelo Brozovic","MF",29,6.1,13,7,8,2,3,3,10,30,7,13,7,6,4,17,7,0
+"Croatia","Borna Sosa","DF",24,4.7,14,6,9,3,2,10,12,83.3,2,4,0,4,2,16,18,0
+"Croatia","Marko Livaja","FW",28,2.7,2,2,0,1,1,1,3,33.3,2,1,0,1,1,3,1,0
+"Croatia","Mario Pasalic","FW,MF",27,3,7,5,2,4,1,3,7,42.9,4,6,2,4,3,10,3,0
+"Croatia","Bruno Petkovic","FW",27,2.6,6,4,1,3,2,0,1,0,1,3,2,1,0,6,0,0
+"Croatia","Nikola Vlasic","FW,MF",24,2.3,1,1,1,0,0,0,1,0,1,2,0,2,1,2,0,0
+"Croatia","Mislav Orsic","FW",29,1.8,3,3,1,1,1,2,6,33.3,4,2,0,2,0,3,1,0
+"Croatia","Lovro Majer","MF,FW",24,1.4,3,1,1,2,0,2,3,66.7,1,1,0,1,0,3,2,0
+"Croatia","Borna Barisic","DF",29,1.3,1,1,0,1,0,1,1,100,0,1,0,1,0,1,4,0
+"Croatia","Josip Stanisic","DF",22,1,3,3,0,3,0,2,2,100,0,0,0,0,1,4,0,0
+"Croatia","Josip Sutalo","DF",22,1,0,0,0,0,0,0,0,,0,1,1,0,0,0,5,0
+"Croatia","Ante Budimir","FW",30,0.6,1,1,0,1,0,0,0,,0,0,0,0,0,1,1,0
+"Croatia","Kristijan Jakic","FW",25,0,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"Argentina","Emiliano Martinez","GK",29,7.7,0,0,0,0,0,0,0,,0,0,0,0,0,0,4,0
+"Argentina","Lionel Messi","FW",34,7.7,5,3,1,3,1,0,2,0,2,2,0,2,0,5,0,0
+"Argentina","Nicolas Otamendi","DF",34,7.7,10,6,7,3,0,5,7,71.4,2,6,2,4,9,19,24,0
+"Argentina","Rodrigo De Paul","MF",28,6.7,11,6,6,4,1,8,13,61.5,5,8,0,8,7,18,3,0
+"Argentina","Nahuel Molina","DF",24,6.3,8,4,6,2,0,4,8,50,4,7,1,6,3,11,11,0
+"Argentina","Alexis Mac Allister","MF",23,6.1,9,4,3,5,1,4,7,57.1,3,13,1,12,3,12,6,0
+"Argentina","Cristian Romero","DF",24,6.1,5,3,4,1,0,4,8,50,4,6,4,2,4,9,26,0
+"Argentina","Enzo Fernandez","MF",21,6.3,22,15,15,5,2,13,23,56.5,10,7,1,6,3,25,7,0
+"Argentina","Julian Alvarez","FW",22,5.2,4,2,3,0,1,0,2,0,2,8,0,8,0,4,3,0
+"Argentina","Marcos Acuna","DF,FW",30,4.1,12,8,9,2,1,6,7,85.7,1,8,1,7,2,14,9,0
+"Argentina","Angel Di Maria","MF,FW",34,3.2,3,1,2,0,1,1,3,33.3,2,3,0,3,1,4,0,0
+"Argentina","Nicolas Tagliafico","DF",29,4.1,7,7,2,3,2,4,4,100,0,9,1,8,9,16,9,0
+"Argentina","Lisandro Martinez","DF",24,3.4,6,2,4,2,0,2,2,100,0,3,1,2,3,9,14,0
+"Argentina","Lautaro Martinez","FW",24,2.7,0,0,0,0,0,0,0,,0,1,1,0,1,1,0,0
+"Argentina","Leandro Paredes","MF",27,2.5,10,4,4,6,0,3,4,75,1,0,0,0,3,13,4,0
+"Argentina","Papu Gomez","MF,FW",34,1.2,2,0,0,1,1,0,1,0,1,1,0,1,1,3,0,0
+"Argentina","Gonzalo Montiel","DF,MF",25,1.3,3,2,2,1,0,2,4,50,2,1,0,1,1,4,1,0
+"Argentina","Guido Rodriguez","MF",28,0.6,2,0,1,1,0,2,2,100,0,1,1,0,0,2,1,0
+"Argentina","German Pezzella","DF",30,0.7,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"Argentina","Exequiel Palacios","MF,DF",23,0.6,0,0,0,0,0,0,2,0,2,0,0,0,2,2,1,0
+"Argentina","Paulo Dybala","FW",28,0.2,3,1,0,2,1,0,0,,0,0,0,0,0,3,1,0
+"Argentina","Thiago Almada","MF",21,0.1,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+"Argentina","Angel Correa","MF",27,0.1,1,1,1,0,0,0,0,,0,0,0,0,0,1,1,0
+"Argentina","Juan Foyth","DF",24,0.1,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
