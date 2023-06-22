@@ -15,11 +15,32 @@ p {
     font-size: 1em;
     color: white;
 }
+thead {
+    background-color: #4F7942; 
+    color: black;
+    border-radius: 8px;
+    border: 1px solid white;
+}                    
 th {
     padding: 10px;
+    border-radius: 8px;
+}
+tbody {
+    border-radius: 8px;
 }
 td {
     padding: 10px;
     border: 1px solid white;
     color: white;
+}
+table {
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0;
+    width: 100%;
+    text-align: center;
+    border: 2px solid white;
+    background-color: #4F7942;
+    border-radius: 8px;
 }

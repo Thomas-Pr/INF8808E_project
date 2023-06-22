@@ -149,24 +149,6 @@ def get_display_data(dataframe):
     return hoverdata, raw_data, norm_data
 
 
-# def get_heatmap_hover_template(customdata):
-#     '''
-#         Sets the template for the hover tooltips in the heatmap.
-
-#         Contains three labels, followed by their corresponding
-#         value, separated by a colon: position, actual value and
-#         expected value.
-#     '''
-#     hm_hover = ["Position", "Actual value", "Expected value"]
-#     hover_temp = ""
-#     for i in range(len(hm_hover)):
-#         hover_temp += f"<b style='font-family:{THEME['accent_font_family']}> {hm_hover[i]}"
-#         hover_temp += f":</b><span style='font-family:{THEME['font_family']}> %{customdata[i]}"
-#         hover_temp += "</span><br>"
-#     hover_temp += '<extra></extra>'
-#     return hover_temp
-
-
 def get_heatmap_hover_template(customdata):
     '''
         Sets the template for the hover tooltips in the heatmap.
@@ -175,10 +157,9 @@ def get_heatmap_hover_template(customdata):
         value, separated by a colon: position, actual value and
         expected value.
     '''
-    # TODO : Define and return the hover template
-    hover_temp = template.add_template_line('Position', '%{customdata[0]}')
-    hover_temp += template.add_template_line('Actual value', '%{customdata[1]}')
-    hover_temp += template.add_template_line('Expected value', '%{customdata[2]}')
+    hover_temp = "<b>Position:</b> %{customdata[0]}<br>"
+    hover_temp += "<b>Actual value:</b> %{customdata[1]}<br>"
+    hover_temp += "<b>Expected value:</b> %{customdata[2]}<br>"
     hover_temp += '<extra></extra>'
     return hover_temp
 

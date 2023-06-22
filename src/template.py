@@ -11,7 +11,7 @@ THEME = {
     'accent_font_family': 'Roboto Slab',
     'dark_color': '#2A2B2E',
     'pale_color': '#DFD9E2',
-    'color_way': ["#006233","#0011bb","#ff0000","#43A1D5"],
+    'colorway': ["#006233","#0011bb","#ff0000","#D5B048"],
     'label_font_size': 14,
     'label_background_color': '#ffffff',
     'colorscale': ["#ff0000","#ffffff","#006233"]
@@ -37,7 +37,7 @@ def create_custom_theme():
             ),
             hovermode='closest',
 
-            colorway=THEME['color_way'],
+            colorway=THEME['colorway'],
             colorscale={'sequential':THEME['colorscale']}
         )
     )
@@ -49,23 +49,3 @@ def set_default_theme():
         'plotly_white' theme and our custom theme.
     '''
     pio.templates.default = 'plotly_white+custom_theme'
-
-
-'''
-    Provides the templates for the tooltips.
-'''
-
-def add_template_line(name, value):
-    '''
-        Creates a template line for a label
-
-        The label is followed by its corresponding
-        value, separated by a colon
-    '''
-    temp_line = f"<b> {name}"
-    temp_line += f":</b><span> {value}"
-    temp_line += "</span><br>"
-    # temp_line = f"<b style='font-family:{THEME['accent_font_family']}> {name}"
-    # temp_line += f":</b><span style='font-family:{THEME['font_family']}'> {value}"
-    # temp_line += "</span><br>"
-    return temp_line

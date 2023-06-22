@@ -45,78 +45,79 @@ app.layout = html.Div(
     className='content',
     children=[
     html.Header(style={'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}, children=[
-        html.H1("Morocco's Unexpected Triumph: A Deep Dive into the 2022 World Cup Journey", style={'font-size': '3em', 'marginBottom': '5px', 'font-weight': 'bold', 'color': 'red'}),
+        html.H1("Morocco's Unexpected Triumph: A Deep Dive into the 2022 World Cup Journey", 
+                style={'font-size': '3em', 'marginBottom': '5px', 'font-weight': 'bold', 'color': 'red'}),
         html.Img(src=image_url, style={'height': '500px', 'marginLeft': '20px', 'borderRadius': '8px'}),
-        html.P("In this analysis, we're using FIFA's data to highlight Morocco's surprising and exciting journey in the 2022 World Cup. Morocco wasn't seen as a top competitor at the beginning, but they fought their way into the final stages of this world-renowned tournament. Our goal is to show how Morocco's great performance wasn't just luck. We're looking at strategy, teamwork, and determination that helped them exceed everyone's expectations and make a lasting impact on soccer fans everywhere.", style={'font-size': '1.3em', 'marginBottom': '20px', 'marginLeft': '30px', 'text-align': 'center'})
+        html.P("In this analysis, we're using FIFA's data to highlight Morocco's surprising and exciting journey in the 2022 World Cup. \
+               Morocco wasn't seen as a top competitor at the beginning, but they fought their way into the final stages of this world-renowned tournament. \
+               Our goal is to show how Morocco's great performance wasn't just luck. \
+               We're looking at strategy, teamwork, and determination that helped them exceed everyone's expectations and make a lasting impact on soccer fans everywhere.", 
+               style={'font-size': '1.3em', 'marginBottom': '20px', 'marginLeft': '30px', 'text-align': 'center', 'color': 'black'})
     ]),
-    html.Div(style={'padding': '0 30px',
-        'backgroundColor': 'rgb(235, 59, 59)'}, children=[
-        html.Div([
-            html.H2('Breaking Down the Defense', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-            html.P("Let's dive into how Morocco's defense stacked up. We're using a radar chart, which is a pretty cool tool that lets us visualize their overall performance. The bigger the area on the chart, the better the team did. We're looking at a bunch of different aspects of defense, like interceptions, tackles, and who won in aerial duels. We also highlighted the number of fouls committed, to get an idea of their discipline level.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
+
+    html.Div(style={'padding': '0 30px', 'backgroundColor': 'rgb(235, 59, 59)'}, children=[
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Breaking Down the Defense'),
+            html.P("Let's dive into how Morocco's defense stacked up. We're using a radar chart, which is a pretty cool tool that lets us visualize their overall performance. \
+                   The bigger the area on the chart, the better the team did. \
+                   We're looking at a bunch of different aspects of defense, like interceptions, tackles, and who won in aerial duels. \
+                   We also highlighted the number of fouls committed, to get an idea of their discipline level."),
             add_graph(id='radar-chart_defense', figure=fig_defense_actions),
-        ], style={'marginBottom': '60px'}),
-        html.Div([
-            html.H2('The Art of Possession', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-            html.P("Next up, let's check out how Morocco controlled the ball. We're using another radar chart here to give you an idea of their possession style and performance. We're comparing general ball possession and how effectively the team moved forward with it. We used a logarithmic scale to make the differences in percentages clearer. As before, Morocco's area is filled in, so you can easily see how they did compared to the other teams.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
-            html.Div(style={'width': '100%', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection' : 'row'}, children=[
-        html.Div(style={'width': '60%', 'padding': '10px'}, children=[
-            add_graph(id='radar-chart_possession', figure=fig_poss)
         ]),
-        html.Div(style={'width': '35%', 'padding': '10px'}, children=[
-            html.Table(style={
-                'marginTop': '20px', 
-                'marginLeft': 'auto', 
-                'marginRight': 'auto',
-                'borderSpacing': '0',
-                'width': '100%',
-                'textAlign': 'center',
-                'border': '2px solid white',
-                'backgroundColor': '#4F7942',
-                'borderRadius': '8px'
-            }, children=[
-                html.Thead(
-                    style={'backgroundColor': '#4F7942', 'color': 'black','borderRadius': '8px','border': '1px solid white'},
-                    children=html.Tr(children=[
-                        html.Th('Name', style={'padding': '10px','borderRadius': '8px'}),
-                        html.Th('Description', style={'padding': '10px','borderRadius': '8px'})
+
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('The Art of Possession'),
+            html.P("Next up, let's check out how Morocco controlled the ball. We're using another radar chart here to give you an idea of their possession style and performance. \
+                   We're comparing general ball possession and how effectively the team moved forward with it. \
+                   We used a logarithmic scale to make the differences in percentages clearer. \
+                   As before, Morocco's area is filled in, so you can easily see how they did compared to the other teams."),
+            html.Div(style={'width': '100%', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection' : 'row'}, children=[
+                html.Div(style={'width': '60%', 'padding': '10px'}, children=[
+                    add_graph(id='radar-chart_possession', figure=fig_poss)
+                ]),
+                html.Div(style={'width': '35%', 'padding': '10px'}, children=[
+                    html.Table(children=[
+                        html.Thead(children=html.Tr(children=[
+                            html.Th('Name'),
+                            html.Th('Description')
+                        ])
+                        ),
+                        html.Tbody(children=[
+                            html.Tr(children=[
+                                html.Td('Possession (%)'),
+                                html.Td('Possession average during the World Cup ')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('Touches in defensive 1/3 (%)'),
+                                html.Td('Touches made in the defensive 1/3 of the field')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('Progressive Passes (%)'),
+                                html.Td('Distance Covered by Forward Passes / Total Distance Covered by Passes')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('Progressive Carries (%)'),
+                                html.Td('Distance Covered by Forward Carries / Total Distance Covered by Carries')
+                            ]),
+                        ])
                     ])
-                ),
-                html.Tbody(
-                    style={'borderRadius': '8px'},
-                    children=[
-                    html.Tr(children=[
-                        html.Td('Possession (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Possession average during the World Cup ', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('Touches in defensive 1/3 (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Touches made in the defensive 1/3 of the field', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('Progressive Passes (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Distance Covered by Forward Passes / Total Distance Covered by Passes', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('Progressive Carries (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Distance Covered by Forward Carries / Total Distance Covered by Carries', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
                 ])
             ])
-        ])
-    
+        ]),
 
-            ])
-        ], style={'marginBottom': '60px'}),
-        html.Div([
-            html.H2('Offense vs Defense', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-            html.P("Offense vs Defense! We're using stacked bar charts to get a clear view of how players perform in both areas. On the defensive side, we're looking at tackles, blocks, and interceptions. On the offense, we're focusing on passes. As any fan knows, good passing is what sets up those spectacular goals. The stacked bar charts let us easily compare each player's performance, and see where their strengths lie.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Offense vs Defense'),
+            html.P("Offense vs Defense! We're using stacked bar charts to get a clear view of how players perform in both areas. \
+                   On the defensive side, we're looking at tackles, blocks, and interceptions. \
+                   On the offense, we're focusing on passes. As any fan knows, good passing is what sets up those spectacular goals. \
+                   The stacked bar charts let us easily compare each player's performance, and see where their strengths lie."),
             add_graph(id='barchart-offense', figure=fig_offense),
             add_graph(id='barchart-defense', figure=fig_defense),
-        ], style={'marginBottom': '60px'}),
-        html.Div([
-            html.H2('Shots to Goals', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-            html.P("Next up, we're going to dive into one of the most thrilling aspects of the game – turning shots into goals. For this, we're using a stacked bar chart, which will really help us to see the ratio of shots taken, shots on target, and goals scored. We're going to lay it all out there, so we can see how successful each team was in making those precious shots count.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
+        ]),
+
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Shots to Goals'),
+            html.P("Next up, we're going to dive into one of the most thrilling aspects of the game – turning shots into goals. For this, we're using a stacked bar chart, which will really help us to see the ratio of shots taken, shots on target, and goals scored. We're going to lay it all out there, so we can see how successful each team was in making those precious shots count."),
             html.Div(
             [dcc.Dropdown(
                 id="dropdown",
@@ -125,72 +126,68 @@ app.layout = html.Div(
                 clearable=False,
                 style={'backgroundColor': '#4F7942'},
             )],style={'width': '20%','backgroundColor': '#4F7942'}),
-            add_graph(id='barchart-shooting', figure=bar_chart_shooting.get_figure(df=bar_chart_shooting.mask_data(mask="Overall")[0], mask_title=bar_chart_shooting.mask_data(mask="Overall")[1])),
-        ], style={'marginBottom': '60px'}),
-        html.Div([
-    html.H2('Player Performance Heatmap', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-    html.P("We've cooked up a heatmap to give us a clear view of which players turned up the heat and who might've been left out in the cold. Our focus here is on their contribution to the offensive side of the game, and ultimately, the team's success. We're not just talking about goals and assists, but the impact they've had overall.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
-    html.Div(style={'width': '100%', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection' : 'row'}, children=[
-        html.Div(style={'width': '60%', 'padding': '10px'}, children=[
-            add_graph(id='heatmap-performance', figure=heatmap.get_figure(heatmap.prep_data()))
+            add_graph(id='barchart-shooting', 
+                      figure=bar_chart_shooting.get_figure(df=bar_chart_shooting.mask_data(mask="Overall")[0], 
+                                                           mask_title=bar_chart_shooting.mask_data(mask="Overall")[1])),
         ]),
-        html.Div(style={'width': '35%', 'padding': '10px'}, children=[
-            html.Table(style={
-                'marginTop': '20px', 
-                'marginLeft': 'auto', 
-                'marginRight': 'auto',
-                'borderSpacing': '0',
-                'width': '100%',
-                'textAlign': 'center',
-                'border': '1px solid white',
-            }, children=[
-                html.Thead(
-                    style={'backgroundColor': '#4F7942', 'color': 'white'},
-                    children=html.Tr(children=[
-                        html.Th('Name', style={'padding': '10px'}),
-                        html.Th('Description', style={'padding': '10px'})
-                    ])
-                ),
-                html.Tbody(children=[
-                    html.Tr(children=[
-                        html.Td('G', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Goals', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('AG', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Assisted Goals', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('onG', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Goals scored by team while on pitch', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('onGA', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Goals allowed by team while on pitch', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('PlusMinus', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Goals scored minus goals allowed while the player was on the pitch', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
-                    ]),
-                    html.Tr(children=[
-                        html.Td('On-Off', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
-                        html.Td('Net goals by the team while the player was on the pitch minus net goals allowed by the team while the player was off the pitch', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
+
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Player Performance Heatmap'),
+            html.P("We've cooked up a heatmap to give us a clear view of which players turned up the heat and who might've been left out in the cold. \
+                Our focus here is on their contribution to the offensive side of the game, and ultimately, the team's success. \
+                We're not just talking about goals and assists, but the impact they've had overall."),
+            html.Div(style={'width': '100%', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection' : 'row'}, children=[
+                html.Div(style={'width': '60%', 'padding': '10px'}, children=[
+                    add_graph(id='heatmap-performance', figure=heatmap.get_figure(heatmap.prep_data()))
+                ]),
+                html.Div(style={'width': '35%', 'padding': '10px'}, children=[
+                    html.Table(children=[
+                        html.Thead(children=html.Tr(children=[
+                                html.Th('Name'),
+                                html.Th('Description')
+                            ])
+                        ),
+                        html.Tbody(children=[
+                            html.Tr(children=[
+                                html.Td('G'),
+                                html.Td('Goals')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('AG'),
+                                html.Td('Assisted Goals')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('onG'),
+                                html.Td('Goals scored by team while on pitch')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('onGA'),
+                                html.Td('Goals allowed by team while on pitch')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('PlusMinus'),
+                                html.Td('Goals scored minus goals allowed while the player was on the pitch')
+                            ]),
+                            html.Tr(children=[
+                                html.Td('On-Off'),
+                                html.Td('Net goals by the team while the player was on the pitch minus net goals allowed by the team while the player was off the pitch')
+                            ])
+                        ])
                     ])
                 ])
-            ])
-        ])
-    
-
             ]),
-        ], style={'marginBottom': '60px'}),
-        html.Div([
-            html.H2('Playing Time & Age Analysis', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
-            html.P("We're turning to the trusty violin plot to shed some light on two key factors: how much time each player spent on the pitch, and the age distribution within the squads. ", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
+        ]),
+        
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Playing Time & Age Analysis'),
+            html.P("We're turning to the trusty violin plot to shed some light on two key factors: how much time each player spent on the pitch, \
+                   and the age distribution within the squads."),
             add_graph(id='violin-min', figure=violin.draw_figure(df=violin.prep_data_violin(), column="Min")),
             add_graph(id='violin-age', figure=violin.draw_figure(df=violin.prep_data_violin(), column="Age")),
-        ], style={'marginBottom': '60px'}),
+        ]),
     ]),
 ])
+
 @app.callback(
     Output("barchart-shooting", "figure"), 
     Input("dropdown", "value"))

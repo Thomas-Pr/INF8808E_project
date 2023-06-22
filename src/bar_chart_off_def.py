@@ -14,8 +14,8 @@ def prep_offense_data(df):
     df_offense['Total'] = df_offense[["Short Pass", "Medium Pass", "Long Pass"]].sum(axis=1)
     df_offense = df_offense.sort_values('Total', ascending=False)
     df_offense.drop('Total', axis=1, inplace=True)
-    df_off =pd.melt(df_offense[["Player","Short Pass", "Medium Pass", "Long Pass"]], id_vars=['Player'], var_name=['Pass Types']).copy()
-    df_off["percentages"]= ((df_off["value"] / df_off['value'].groupby(df_off['Player']).transform('sum'))*10000).astype(int) /100
+    df_off = pd.melt(df_offense[["Player","Short Pass", "Medium Pass", "Long Pass"]], id_vars=['Player'], var_name=['Pass Types']).copy()
+    df_off["percentages"] = ((df_off["value"] / df_off['value'].groupby(df_off['Player']).transform('sum'))*10000).astype(int) /100
     return df_off
 
 def prep_defense_data(df):
@@ -24,8 +24,8 @@ def prep_defense_data(df):
     df_defense['Total'] = df_defense[["Tackles", "Blocks", "Interceptions"]].sum(axis=1)
     df_defense = df_defense.sort_values('Total', ascending=False)
     df_defense.drop('Total', axis=1, inplace=True)
-    df_def =pd.melt(df_defense[["Player","Tackles", "Blocks", "Interceptions"]], id_vars=['Player'], var_name=['Defensive Actions']).copy()
-    df_def["percentages"]= ((df_def["value"] / df_def['value'].groupby(df_def['Player']).transform('sum'))*10000).astype(int) /100
+    df_def = pd.melt(df_defense[["Player","Tackles", "Blocks", "Interceptions"]], id_vars=['Player'], var_name=['Defensive Actions']).copy()
+    df_def["percentages"] = ((df_def["value"] / df_def['value'].groupby(df_def['Player']).transform('sum'))*10000).astype(int) /100
     return df_def
 
 def prep_data_barchart_off_def():
@@ -49,23 +49,21 @@ def get_fig():
 # FIGURES
 def create_offense_plot(df):
     fig = go.Figure()
-    fig = px.bar(data_frame = df, x="Player", y="value",color="Pass Types",
-                # color_discrete_map= {"Missed Shots on Target":"gold" ,"Missed Shots not on Target":"tomato","Goals":"limegreen"},
+    fig = px.bar(data_frame=df, x="Player", y="value", color="Pass Types",
                 title="Offensive Passes", 
-                hover_data = ["percentages","Pass Types"],
+                hover_data=["percentages","Pass Types"],
                 text_auto=True)
-    fig.update_traces(hovertemplate = "<b>Player :</b> %{x}<br><b>%{customdata[1]} Completed: </b>%{y} (%{customdata[0]}%)<extra></extra>") 
+    fig.update_traces(hovertemplate="<b>Player:</b> %{x}<br><b>%{customdata[1]} Completed: </b>%{y} (%{customdata[0]}%)<extra></extra>") 
     fig.update_layout(yaxis={'title': "Offensive Passes Completed"})
     fig.update_layout(height=600)
     return fig
 
 def create_defense_plot(df):
-    fig = px.bar(data_frame = df, x="Player", y="value",color="Defensive Actions",
-                # color_discrete_map= {"Missed Shots on Target":"gold" ,"Missed Shots not on Target":"tomato","Goals":"limegreen"},
+    fig = px.bar(data_frame=df, x="Player", y="value", color="Defensive Actions",
                 title="Key Defensive Actions", 
-                hover_data = ["percentages","Defensive Actions"],
+                hover_data=["percentages","Defensive Actions"],
                 text_auto=True)
-    fig.update_traces(hovertemplate = "<b>Player :</b> %{x}<br><b>%{customdata[1]} Completed: </b>%{y} (%{customdata[0]}%)<extra></extra>") 
+    fig.update_traces(hovertemplate="<b>Player:</b> %{x}<br><b>%{customdata[1]} Completed: </b>%{y} (%{customdata[0]}%)<extra></extra>") 
     fig.update_layout(yaxis={'title': "Defensive Actions"})
-    fig.update_layout(height=620)
+    fig.update_layout(height=660)
     return fig

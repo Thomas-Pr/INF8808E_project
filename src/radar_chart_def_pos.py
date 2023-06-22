@@ -75,8 +75,8 @@ def prep_data_possession(df_passing,df_possession,df_scorefixtures):
 
     dict_country={}
     for i in range (len(teams)):
-        country=teams[i]
-        dict_country[country]=  [possession_moy[i],def_touches[i],prog_dist_ratio[i],progDist_ratio_carries[i]]
+        country = teams[i]
+        dict_country[country] = [possession_moy[i],def_touches[i],prog_dist_ratio[i],progDist_ratio_carries[i]]
     
     dict_country_sorted = dict(sorted(dict_country.items(), key=lambda x: x[0], reverse=True))
     return dict_country_sorted
@@ -109,7 +109,7 @@ def get_radar_figure(team_data,categories,type):
                 #color=colors[team_name]['line']
             ),
             hoverlabel=dict(
-            bgcolor=template.THEME['color_way'][i]),
+            bgcolor=template.THEME['colorway'][i]),
             name=team_name,
             marker=dict(size=8),
             hovertemplate=hovertemplate,
