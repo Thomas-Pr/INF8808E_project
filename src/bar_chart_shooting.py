@@ -47,7 +47,7 @@ def mask_data(mask):
 
 def get_figure(df,mask_title):
     fig = px.bar(data_frame = df, x="Squad", y="value",color='Shots',
-                    color_discrete_map= {"Missed Shots on Target":"gold" ,"Missed Shots not on Target":"tomato","Goals":"limegreen"},
+                    color_discrete_map= {"Missed Shots on Target":"#dbd822" ,"Missed Shots not on Target":'rgb(235, 59, 59)',"Goals":'#4F7942'},
                     title=mask_title, 
                     hover_data = ["Percent","Shots"],
                     labels={'Shots':'Type of Shots','value':'nb of Shots','Percent':"% of Shots over All Shots"},

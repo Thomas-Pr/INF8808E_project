@@ -1,18 +1,19 @@
 import plotly.graph_objects as go
 import pandas as pd
+import template
 
 # DATA LOADING AND PROCESSING
 
 Playingtime=[7.7,7.7,7.3,7.3]
 
 teams=['Argentina','Croatia','France','Morocco']
-categories_def = ['Interceptions','AerialDuelswon' , 'Recoveries', 'Clearances','Fouls','Tackles']
+categories_def = ['Interceptions','Tackles','Clearances','Recoveries','Fouls','AerialDuelswon' ]
 categories_pos=['Possession (%)','Touches in defensive 1/3 (%)','Progressive Passes (%)','Progressive Carries (%)']
 colors = {
-    'Argentina': {'line': 'rgba(255,51,255,1)', 'marker': 'rgba(255,51,255,1.8)'},
-    'Croatia': {'line': 'rgba(255, 0, 0, 1)', 'marker': 'rgba(255, 0, 0, 1.3)'},
-    'France': {'line': 'rgba(86,180,245, 1)', 'marker': 'rgba(86,180,245, 1.3)'},
-    'Morocco': {'line': 'rgba(34, 139, 34,0.5)', 'fillcolor': 'rgba(97,208,79, 0.5)', 'marker': 'rgba(34, 139, 34, 1.3)'}
+    'Argentina': {'line': 'rgba(229,193,0,0.9)', 'marker': 'rgba(229,193,0,1.8)'},
+    'Croatia': {'line': 'rgba(255, 0, 0, 0.9)', 'marker': 'rgba(255, 0, 0, 1.8)'},
+    'France': {'line': 'rgba(0,17,187, 0.9)', 'marker': 'rgba(0,17,187, 1.8)'},
+    'Morocco': {'line': 'rgba(0,98,51,0.5)', 'fillcolor': 'rgba(0,98,51, 0.5)', 'marker': 'rgba(0,98,51, 1.3)'}
 }
 
 def load_data():
@@ -49,9 +50,10 @@ def prep_data_defense(dfmisc,df_def):
     dict_country={}
     for i in range (len(teams)):
         country=teams[i]
-        dict_country[country]=  [int_game[i],tkl_game[i],clr_game[i],fouls_game[i],recov_game[i],aerial_game[i]]
+        dict_country[country]=  [int_game[i],tkl_game[i],clr_game[i],recov_game[i],fouls_game[i],aerial_game[i]]
     
-    return dict_country
+    dict_country_sorted = dict(sorted(dict_country.items(), key=lambda x: x[0], reverse=True))
+    return dict_country_sorted
 
 def prep_data_possession(df_passing,df_possession,df_scorefixtures):
     
@@ -76,14 +78,13 @@ def prep_data_possession(df_passing,df_possession,df_scorefixtures):
         country=teams[i]
         dict_country[country]=  [possession_moy[i],def_touches[i],prog_dist_ratio[i],progDist_ratio_carries[i]]
     
-    return dict_country
+    dict_country_sorted = dict(sorted(dict_country.items(), key=lambda x: x[0], reverse=True))
+    return dict_country_sorted
 
 
-def get_radar_figure(team_data,categories):
+def get_radar_figure(team_data,categories,type):
 
     """
-        Generate a radar chart for the given teams.
-
         Args:
             categories: List of categories for the radar chart
             category_definitions: Descriptions for each category
@@ -92,60 +93,36 @@ def get_radar_figure(team_data,categories):
         Returns:
             A plotly Figure with the radar chart
     """
-
     fig = go.Figure()
-  
-    hovertext = ['{}: {}'.format(cat, val) for cat, val in zip(categories, team_data["Morocco"])]
-    hovertemplate = '<span color: white"><b>{}</b><br>{}: {}</span><extra></extra>'.format("Morocco", '%{theta}', '%{r}')
-
-    trace_morocco = go.Scatterpolar(
-        r=team_data['Morocco'] + [team_data['Morocco'][0]],
-        theta=categories + [categories[0]],
-        fill='toself',
-        hoveron='points+fills',
-        line=dict(
-            shape='spline',
-            width=3,
-            color=colors['Morocco']['line']
-        ),
-        name='Morocco',
-        marker=dict(color=colors['Morocco']['marker']),
-        fillcolor=colors['Morocco']['fillcolor'],
-        hovertemplate=hovertemplate,
-    )
-
-    fig.add_trace(trace_morocco)
-
     # Process the remaining teams
-    for team_name in team_data.keys():
-        if team_name == "Morocco":
-            continue 
-
-        hovertext = ['{}: {}'.format(cat, val) for cat, val in zip(categories, team_data[team_name])]
-        hovertemplate = '<span color: white"><b>{}</b><br>{}: {}</span><extra></extra>'.format(team_name, '%{theta}', '%{r}')
-
+    for i,team_name in enumerate(team_data.keys()):
+        
+        hovertemplate = '<span style="color: white"><b>{}</b><br>{}: {}</span><extra></extra>'.format(team_name, '%{theta}', '%{r}') 
         trace = go.Scatterpolar(
             r=team_data[team_name] + [team_data[team_name][0]],
             theta=categories + [categories[0]],
-            fill='none',
+            fill=('toself'if team_name=='Morocco' else 'none'),
             hoveron='points+fills',
             line=dict(
                 shape='spline',
                 width=3,
-                color=colors[team_name]['line']
+                #color=colors[team_name]['line']
             ),
+            hoverlabel=dict(
+            bgcolor=template.THEME['color_way'][i]),
             name=team_name,
-            marker=dict(color=colors[team_name]['marker']),
+            marker=dict(size=8),
             hovertemplate=hovertemplate,
         )
 
         fig.add_trace(trace)
 
     fig.update_layout(
+        title=("Defensive actions by game"if type=='defense' else "Morocco's possession style compared to other teams"),
         polar=dict(
             radialaxis=dict(visible=True,linecolor='rgba(0,0,0,0.4)',gridcolor='rgba(0,0,0,0.1)')
         ),
-        hovermode='closest',
+        hovermode='closest',    
     )
 
     fig.update_polars(bgcolor='rgba(0,0,0, 0.1)')
@@ -160,31 +137,7 @@ def get_fig():
     dict_country_defense= prep_data_defense(df_miscellanous,df_defense)
     dict_country_poss = prep_data_possession(df_passing,df_possession,df_scorefixtures)
 
-    fig_def=get_radar_figure(dict_country_defense,categories_def)
-    fig_def.add_annotation(
-        x=0.5,
-        y=1.23,
-        xref='paper',
-        text='Defensive actions by game',
-        showarrow=False,
-        font=dict(
-            family='Arial',
-            size=18,
-            color='black'
-        ),
-    )
-    fig_poss=get_radar_figure(dict_country_poss,categories_pos)
-    fig_poss.add_annotation(
-        x=0.5,
-        y=1.23,
-        xref='paper',
-        text="Morocco's possession style compared to other teams",
-        showarrow=False,
-        font=dict(
-            family='Arial',
-            size=18,
-            color='black'
-        ),
-    )
+    fig_def=get_radar_figure(dict_country_defense,categories_def,'defense')
+    fig_poss=get_radar_figure(dict_country_poss,categories_pos,'possession')
     fig_poss.update_layout(polar=dict(radialaxis=dict(type='log')))
     return fig_def,fig_poss

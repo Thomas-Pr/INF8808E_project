@@ -59,7 +59,54 @@ app.layout = html.Div(
         html.Div([
             html.H2('The Art of Possession', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
             html.P("Next up, let's check out how Morocco controlled the ball. We're using another radar chart here to give you an idea of their possession style and performance. We're comparing general ball possession and how effectively the team moved forward with it. We used a logarithmic scale to make the differences in percentages clearer. As before, Morocco's area is filled in, so you can easily see how they did compared to the other teams.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
-            add_graph(id='radar-chart_poss', figure=fig_poss),
+            html.Div(style={'width': '100%', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection' : 'row'}, children=[
+        html.Div(style={'width': '60%', 'padding': '10px'}, children=[
+            add_graph(id='radar-chart_possession', figure=fig_poss)
+        ]),
+        html.Div(style={'width': '35%', 'padding': '10px'}, children=[
+            html.Table(style={
+                'marginTop': '20px', 
+                'marginLeft': 'auto', 
+                'marginRight': 'auto',
+                'borderSpacing': '0',
+                'width': '100%',
+                'textAlign': 'center',
+                'border': '2px solid white',
+                'backgroundColor': '#4F7942',
+                'borderRadius': '8px'
+            }, children=[
+                html.Thead(
+                    style={'backgroundColor': '#4F7942', 'color': 'black','borderRadius': '8px','border': '1px solid white'},
+                    children=html.Tr(children=[
+                        html.Th('Name', style={'padding': '10px','borderRadius': '8px'}),
+                        html.Th('Description', style={'padding': '10px','borderRadius': '8px'})
+                    ])
+                ),
+                html.Tbody(
+                    style={'borderRadius': '8px'},
+                    children=[
+                    html.Tr(children=[
+                        html.Td('Possession (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
+                        html.Td('Possession average during the World Cup ', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
+                    ]),
+                    html.Tr(children=[
+                        html.Td('Touches in defensive 1/3 (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
+                        html.Td('Touches made in the defensive 1/3 of the field', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
+                    ]),
+                    html.Tr(children=[
+                        html.Td('Progressive Passes (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
+                        html.Td('Distance Covered by Forward Passes / Total Distance Covered by Passes', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
+                    ]),
+                    html.Tr(children=[
+                        html.Td('Progressive Carries (%)', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'}),
+                        html.Td('Distance Covered by Forward Carries / Total Distance Covered by Carries', style={'padding': '10px', 'border': '1px solid white', 'color': 'white'})
+                    ]),
+                ])
+            ])
+        ])
+    
+
+            ])
         ], style={'marginBottom': '60px'}),
         html.Div([
             html.H2('Offense vs Defense', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
@@ -70,12 +117,14 @@ app.layout = html.Div(
         html.Div([
             html.H2('Shots to Goals', style={'textAlign': 'center', 'fontSize': '2em', 'fontFamily': 'Verdana', 'color': 'white'}),
             html.P("Next up, we're going to dive into one of the most thrilling aspects of the game – turning shots into goals. For this, we're using a stacked bar chart, which will really help us to see the ratio of shots taken, shots on target, and goals scored. We're going to lay it all out there, so we can see how successful each team was in making those precious shots count.", style={'textAlign': 'center', 'fontSize': '1em', 'color': 'white'}),
-            dcc.Dropdown(
+            html.Div(
+            [dcc.Dropdown(
                 id="dropdown",
                 options=[{"label": s, "value": s} for s in ["Overall", "Per Match"]],
                 value="Overall",
-                clearable=False,style={'width': '30%'}
-            ),
+                clearable=False,
+                style={'backgroundColor': '#4F7942'},
+            )],style={'width': '20%','backgroundColor': '#4F7942'}),
             add_graph(id='barchart-shooting', figure=bar_chart_shooting.get_figure(df=bar_chart_shooting.mask_data(mask="Overall")[0], mask_title=bar_chart_shooting.mask_data(mask="Overall")[1])),
         ], style={'marginBottom': '60px'}),
         html.Div([

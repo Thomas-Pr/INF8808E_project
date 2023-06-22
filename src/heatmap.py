@@ -48,6 +48,10 @@ def filter_columns(dataframe):
                     "xAG":"expected_AG"
                     }
     dataframe.rename(columns=new_columns, inplace=True)
+    # Detail the positions for the hover tooltip
+    dataframe = dataframe.replace("DF", "Defender")
+    dataframe = dataframe.replace("MF", "Midfielder")
+    dataframe = dataframe.replace("FW", "Forward")
     return dataframe
 
 

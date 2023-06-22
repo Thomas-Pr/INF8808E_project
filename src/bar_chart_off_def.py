@@ -67,5 +67,5 @@ def create_defense_plot(df):
                 text_auto=True)
     fig.update_traces(hovertemplate = "<b>Player :</b> %{x}<br><b>%{customdata[1]} Completed: </b>%{y} (%{customdata[0]}%)<extra></extra>") 
     fig.update_layout(yaxis={'title': "Defensive Actions"})
-    fig.update_layout(height=600)
+    fig.update_layout(height=620)
     return fig

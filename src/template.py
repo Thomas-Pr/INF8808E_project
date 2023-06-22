@@ -14,7 +14,7 @@ THEME = {
     'color_way': ["#006233","#0011bb","#ff0000","#43A1D5"],
     'label_font_size': 14,
     'label_background_color': '#ffffff',
-    'colorscale': 'RdBu'
+    'colorscale': ["#ff0000","#ffffff","#006233"]
 }
 
 
