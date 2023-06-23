@@ -122,7 +122,18 @@ def get_radar_figure(team_data,categories,type):
         polar=dict(
             radialaxis=dict(visible=True,linecolor='rgba(0,0,0,0.4)',gridcolor='rgba(0,0,0,0.1)')
         ),
-        hovermode='closest',    
+        hovermode='closest',
+        legend=dict(
+        title='<span style="font-size: 18px"><b>Teams :</b></span> <br> (<i>Click on a colored point to select or remove a team</i>) <br> ',
+        orientation='v',
+        yanchor='top',
+        y=(1 if type=='defense' else 1.26),
+        xanchor='right',
+        x=(1 if type=='defense' else 1.7),
+        font=dict(
+            size=13  
+        )
+    )    
     )
 
     fig.update_polars(bgcolor='rgba(0,0,0, 0.1)')

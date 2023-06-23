@@ -182,10 +182,11 @@ def get_figure(dataframe):
                     x=norm_data.keys(), # columns also works
                     y=norm_data.index,
                     color_continuous_midpoint=0,
+                    title = "Actual minus expected value per 90 minutes played",
                     aspect="auto"
                     )
         
-    fig.update_layout(xaxis_title="Statistic",
+    fig.update_layout(
                       yaxis_title="Player",
                       dragmode=False,
                     #   coloraxis_colorbar_title_text="Impact",

@@ -44,15 +44,15 @@ app.layout = html.Div(
     },
     className='content',
     children=[
-    html.Header(style={'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}, children=[
+    html.Header(style={'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center','backgroundColor': '#4F7942','margin':'0px','borderRadius': '5px'}, children=[
         html.H1("Morocco's Unexpected Triumph: A Deep Dive into the 2022 World Cup Journey", 
-                style={'font-size': '3em', 'marginBottom': '5px', 'font-weight': 'bold', 'color': 'red'}),
+                style={'font-size': '3em', 'marginBottom': '5px', 'font-weight': 'bold', 'color': 'white'}),
         html.Img(src=image_url, style={'height': '500px', 'marginLeft': '20px', 'borderRadius': '8px'}),
         html.P("In this analysis, we're using FIFA's data to highlight Morocco's surprising and exciting journey in the 2022 World Cup. \
                Morocco wasn't seen as a top competitor at the beginning, but they fought their way into the final stages of this world-renowned tournament. \
                Our goal is to show how Morocco's great performance wasn't just luck. \
                We're looking at strategy, teamwork, and determination that helped them exceed everyone's expectations and make a lasting impact on soccer fans everywhere.", 
-               style={'font-size': '1.3em', 'marginBottom': '20px', 'marginLeft': '30px', 'text-align': 'center', 'color': 'black'})
+               style={'font-size': '1.3em', 'marginBottom': '20px', 'marginLeft': '30px', 'text-align': 'center', 'color': 'white'})
     ]),
 
     html.Div(style={'padding': '0 30px', 'backgroundColor': 'rgb(235, 59, 59)'}, children=[
