@@ -2,12 +2,13 @@ import plotly.express as px
 import pandas as pd
 import plotly.graph_objects as go
 
-# DATA LOADING AND PROCESSING
+# Function to load data from two .csv files
 def load_data():
     df_offense = pd.read_csv("./assets/data/Passing.csv", sep=",")
     df_defense = pd.read_csv("./assets/data/DefensiveActions.csv", sep=",")
     return df_offense, df_defense
 
+# Function to process the offense data and return a prepared DataFrame
 def prep_offense_data(df):
     df_offense = df[df['Player'].isin(['Youssef EnNesyri', 'Sofiane Boufal','Azzedine Ounahi','Hakim Ziyech','Achraf Hakimi'])]
     df_offense = df_offense.rename(columns={"Short-Cmp": "Short Pass", "Medium-Cmp": "Medium Pass", "Long-Cmp": "Long Pass"})
@@ -18,6 +19,7 @@ def prep_offense_data(df):
     df_off["percentages"] = ((df_off["value"] / df_off['value'].groupby(df_off['Player']).transform('sum'))*10000).astype(int) /100
     return df_off
 
+# Function to process the defense data and return a prepared DataFrame
 def prep_defense_data(df):
     df_defense = df[df['Player'].isin(['Romain Saiss', 'Noussair Mazraoui', 'Nayef Aguerd', 'Achraf Hakimi', 'Sofyan Amrabat'])]
     df_defense = df_defense.rename(columns={"Tackles-Tkl": "Tackles", "Int": "Interceptions"})
@@ -28,6 +30,7 @@ def prep_defense_data(df):
     df_def["percentages"] = ((df_def["value"] / df_def['value'].groupby(df_def['Player']).transform('sum'))*10000).astype(int) /100
     return df_def
 
+# Function to prepare data for offense and defense bar charts
 def prep_data_barchart_off_def():
     df_offense, df_defense = load_data()
 
@@ -37,6 +40,7 @@ def prep_data_barchart_off_def():
     fig_defense = create_defense_plot(df_defense_prep)
     return fig_offense,fig_defense
 
+# Function to get figures for both offense and defense
 def get_fig():
     df_offense, df_defense = load_data()
 
@@ -46,7 +50,7 @@ def get_fig():
     fig_defense = create_defense_plot(df_defense_prep)
     return fig_offense,fig_defense
 
-# FIGURES
+# Function to create a bar chart for offense data
 def create_offense_plot(df):
     fig = go.Figure()
     fig = px.bar(data_frame=df, x="Player", y="value", color="Pass Types",
@@ -58,6 +62,8 @@ def create_offense_plot(df):
     fig.update_layout(height=600)
     return fig
 
+
+# Function to create a bar chart for defense data
 def create_defense_plot(df):
     fig = px.bar(data_frame=df, x="Player", y="value", color="Defensive Actions",
                 title="Key Defensive Actions", 

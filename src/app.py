@@ -19,6 +19,14 @@ fig_offense, fig_defense = bar_chart_off_def.get_fig()
 fig_defense_actions,fig_poss=radar_chart_def_pos.get_fig()
 
 def add_graph(id, figure):
+    '''
+        Adds a dcc.Graph with the corresponding id and based on the figure
+        Args:
+            id : id of the dcc.Graph
+            figure : figure of the dcc.Graph
+        Returns:
+            a html.Div(dcc.Graph) with figure and the id
+    '''
     graph = html.Div(dcc.Graph(
                 id=id,
                 className='graph',
@@ -34,7 +42,7 @@ def add_graph(id, figure):
     return graph
 
 
-image_url = "https://wallpapercave.com/wp/wp11803334.jpg"  # Replace with your desired image URL
+image_url = "https://wallpapercave.com/wp/wp11803334.jpg" 
 
 app.layout = html.Div(
     style={
@@ -89,7 +97,7 @@ app.layout = html.Div(
                             ]),
                             html.Tr(children=[
                                 html.Td('Touches in defensive 1/3 (%)'),
-                                html.Td('Touches made in the defensive 1/3 of the field')
+                                html.Td('Touches made in the defensive 1/3 of the field / Total number of touches')
                             ]),
                             html.Tr(children=[
                                 html.Td('Progressive Passes (%)'),
