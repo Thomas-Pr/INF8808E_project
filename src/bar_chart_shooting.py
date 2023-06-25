@@ -19,8 +19,8 @@ def prep_data():
 def clean_split_concat(df_init):
     '''
         Selects and preprocesses needed columns 
-        Args :
-            dataframe : dataframe to process
+        Args:
+            dataframe: dataframe to process
         Returns:
             A pandas dataframe containing the preprocessed data.
     '''
@@ -53,8 +53,8 @@ def clean_split_concat(df_init):
 def mask_data(mask):
     '''
         Selects only the rows of the chosen view and its title
-        Args :
-            mask : string representing the chosen view 
+        Args:
+            mask: string representing the chosen view 
         Returns:
             A pandas dataframe with the rows corresponding to the view.
             The title of the figure
@@ -67,19 +67,22 @@ def mask_data(mask):
 def get_figure(df, mask_title):
     '''
         Generates a figure based on a dataframe and its title.
-        Args :
-            dataframe : dataframe to use for the figure
-            mask_title : title of the figure
+        Args:
+            dataframe: dataframe to use for the figure
+            mask_title: title of the figure
         Returns:
             figure based on the dataframe
     '''
     fig = px.bar(data_frame=df, x="Squad", y="value", color='Shots',
                  color_discrete_map={"Missed Shots on Target":"#dbd822" ,"Missed Shots not on Target":'rgb(235, 59, 59)',"Goals":'#4F7942'},
                  title=mask_title, 
-                 hover_data = ["Percent","Shots"],
+                 hover_data=["Percent","Shots"],
                  labels={'Shots':'Type of Shots','value':'nb of Shots','Percent':"% of Shots over All Shots"},
                  text_auto=True)
     fig.update_traces(hovertemplate="<b>Squad:</b> %{label}<br><b>Type of Shots:</b> %{customdata[1]}<br><b>Nb of Shots:</b> %{value}<br><b>% of Shots over All Shots:</b> %{customdata[0]}%<extra></extra>") 
-    fig.update_layout(yaxis={'title': 'Number of shots'})
-    fig.update_layout(height=600)
+    fig.update_layout(yaxis={'title': 'Number of shots'},
+                      height=600,
+                      legend=dict(title='<span style="font-size: 18px"><b>Type of Shots</b></span>',
+                                  font_size=13)
+    )
     return fig

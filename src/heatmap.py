@@ -129,6 +129,16 @@ def prep_data():
 '''
 
 def get_display_data(dataframe):
+    '''
+        Get only the statistics used in the heatmap
+        and create a column-normalized version to set the colormap,
+        also create additional hoverdata.
+
+        Args:
+            dataframe: The processed dataframe with standardized names and desired statistics
+        Returns:
+            The hover template
+    '''
     # Get only the raw statistics columns from the dataframe
     raw_data = dataframe[stats]
     # Change onGA name because its opposite is displayed to respect the color code from negative to positive
@@ -151,11 +161,15 @@ def get_display_data(dataframe):
 
 def get_heatmap_hover_template(customdata):
     '''
-        Sets the template for the hover tooltips in the heatmap.
-
+        Creates the template for the hover tooltips in the heatmap.
         Contains three labels, followed by their corresponding
         value, separated by a colon: position, actual value and
         expected value.
+
+        Args:
+            customdata: The data to display the position, actual value, and expected value
+        Returns:
+            The hover template
     '''
     hover_temp = "<b>Position:</b> %{customdata[0]}<br>"
     hover_temp += "<b>Actual value:</b> %{customdata[1]}<br>"
@@ -189,9 +203,6 @@ def get_figure(dataframe):
     fig.update_layout(
                       yaxis_title="Player",
                       dragmode=False,
-                    #   coloraxis_colorbar_title_text="Impact",
-                    #   coloraxis_colorbar_tickmode="array",
-                    #   coloraxis_colorbar_ticktext=["Min", "Max"],
                       coloraxis_showscale=False,
                       xaxis_side="top",
                       yaxis_autorange="reversed",

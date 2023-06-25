@@ -1,8 +1,16 @@
 import plotly.express as px
 import pandas as pd
 
-# Function to draw a violin plot for a specific column in a dataframe
 def draw_figure(df, column):
+    '''
+        Draw a violin plot for a specific column in a dataframe
+
+        Args:
+            df: The dataframe to use for the figure
+            column: The column used (Min or Age)
+        Returns:
+            figure based on the dataframe
+    '''
     # Add a new column 'HoverInfo' for hover data in the plot
     df['HoverInfo'] = '<b>Player:</b> ' + df['Player'] + '<br>' + '<b>Age:</b> ' + df['Age'].astype(str) + '<br>' + '<b>MP:</b> ' + df['MP'].astype(str) + '<br>' + '<b>Mins:</b> ' + df['Min'].astype(str)
     
@@ -11,10 +19,20 @@ def draw_figure(df, column):
                  title=f"Violin Plot - {column} per Squad", 
                  hover_data={"HoverInfo": "|%{customdata[0]}"})
     fig.update_traces(hovertemplate='<br>%{customdata[0]}<extra></extra>')
+    fig.update_layout(height=600,
+                      legend=dict(title='<span style="font-size: 18px"><b>Squad</b></span>',
+                                  font_size=13)
+    )
     return fig
 
-# Function to prepare data for violin plot
+
 def prep_data_violin():
+    '''
+        Prepare data for violin plot
+
+        Returns:
+            A pandas dataframe containing the preprocessed data.
+    '''
     # Load the csv data
     dataframe = pd.read_csv('./assets/data/StandardStats.csv')
     

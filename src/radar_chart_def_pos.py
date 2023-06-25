@@ -48,7 +48,7 @@ def divide_total_100(count,tot):
     Then it is approximated, keeping 1 number after the dot.
         Args:
             count: the stat count
-            total : the total category count 
+            total: the total category count 
         Returns:
             The stat ratio 
     '''
@@ -93,7 +93,7 @@ def prep_data_possession(df_passing,df_possession,df_scorefixtures):
         Args:
             df_passing: the dataset of passing stats
             df_possession: the dataset of the possession stats
-            df_scorefixtures : the dataset of the scorefixtures stats
+            df_scorefixtures: the dataset of the scorefixtures stats
         Returns:
             A dictionnary containing the name of the country as a key and the corresponding stats used in the possession radarchart
     '''
@@ -129,7 +129,7 @@ def get_radar_figure(team_data,categories,type):
     Create the radar chart (defense or possession) from the dictionnary created above, it fills only Morocco ont the radar
         Args:
             categories: List of the corresponding categories for the radar chart (defense or possession)
-            type : defense or possession
+            type: defense or possession
             team_data: Dictionary with team names as keys and corresponding data as values
 
         Returns:
@@ -164,16 +164,16 @@ def get_radar_figure(team_data,categories,type):
         ),
         hovermode='closest',
         legend=dict(
-        title='<span style="font-size: 18px"><b>Teams :</b></span> <br> (<i>Click on a team to select it or remove it</i>) <br> ',#Click on a colored point to select or remove a team</i>) <br> ',
-        orientation='v',
-        yanchor='top',
-        y=(1 if type=='defense' else 1.26),
-        xanchor='right',
-        x=(1 if type=='defense' else 1.7),
-        font=dict(
-            size=13  
+            title='<span style="font-size: 18px"><b>Teams</b></span> <br> (<span style="font-size: 14px"><i>Click on a team to select it or remove it</i>)</span>',
+            orientation='v',
+            yanchor='top',
+            y=(1 if type=='defense' else 1.26),
+            xanchor='right',
+            x=(1 if type=='defense' else 1.7),
+            font=dict(
+                size=13  
+            )
         )
-    )    
     )
 
     fig.update_polars(bgcolor='rgba(0,0,0, 0.1)')

@@ -16,16 +16,17 @@ template.create_custom_theme()
 template.set_default_theme()
 
 fig_offense, fig_defense = bar_chart_off_def.get_fig()
-fig_defense_actions,fig_poss=radar_chart_def_pos.get_fig()
+fig_defense_actions, fig_poss=radar_chart_def_pos.get_fig()
 
 def add_graph(id, figure):
     '''
-        Adds a dcc.Graph with the corresponding id and based on the figure
+        Adds a dcc.Graph with the corresponding id and based on the figure.
+
         Args:
-            id : id of the dcc.Graph
-            figure : figure of the dcc.Graph
+            id: id of the dcc.Graph
+            figure: figure of the dcc.Graph
         Returns:
-            a html.Div(dcc.Graph) with figure and the id
+            A html.Div(dcc.Graph) with figure and the id.
     '''
     graph = html.Div(dcc.Graph(
                 id=id,
