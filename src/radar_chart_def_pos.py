@@ -11,7 +11,7 @@ teams=['Argentina','Croatia','France','Morocco']
 Playingtime=[7.7,7.7,7.3,7.3]
 
 categories_def = ['Interceptions','Tackles','Clearances','Defenders recoveries','Fouls','AerialDuelswon' ]
-categories_pos=['Possession (%)','Touches in defensive 1/3 (%)','Progressive Passes (%)','Progressive Carries (%)']
+categories_pos=['Possession (%) ','Touches in defensive 1/3 (%) ','Progressive Passes (%) ','Progressive Carries (%) ']
 
 '''
     Functions to preprocess the data used in the visualisation.

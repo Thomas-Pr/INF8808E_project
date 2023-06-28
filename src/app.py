@@ -65,6 +65,9 @@ app.layout = html.Div(
     ]),
 
     html.Div(style={'padding': '0 30px', 'backgroundColor': 'rgb(235, 59, 59)'}, children=[
+        html.Div(style={'backgroundColor': '#4F7942','font-size': '1.5em','borderRadius': '5px'}, children=[
+            html.H2('Defense'),
+        ]),
         html.Div(style={'marginBottom': '60px'}, children=[
             html.H2('Breaking Down the Defense'),
             html.P("Let's dive into how Morocco's defense stacked up. We're using a radar chart, which is a pretty cool tool that lets us visualize their overall performance. \
@@ -73,7 +76,21 @@ app.layout = html.Div(
                    We also highlighted the number of fouls committed, to get an idea of their discipline level."),
             add_graph(id='radar-chart_defense', figure=fig_defense_actions),
         ]),
-
+        
+        html.Div(style={'marginBottom': '60px'}, children=[
+            html.H2('Defense vs Offense'),
+            html.P("Defense vs Offense! We're using stacked bar charts to get a clear view of how players perform in both areas. \
+                   On the defensive side, we're looking at tackles, blocks, and interceptions. \
+                   On the offense, we're focusing on passes. As any fan knows, good passing is what sets up those spectacular goals. \
+                   The stacked bar charts let us easily compare each player's performance, and see where their strengths lie."),
+            add_graph(id='barchart-defense', figure=fig_defense),
+            add_graph(id='barchart-offense', figure=fig_offense),
+            
+        ]),
+        
+        html.Div(style={'backgroundColor': '#4F7942','font-size': '1.5em','borderRadius': '5px'}, children=[
+            html.H2('Offense'),
+        ]),
         html.Div(style={'marginBottom': '60px'}, children=[
             html.H2('The Art of Possession'),
             html.P("Next up, let's check out how Morocco controlled the ball. We're using another radar chart here to give you an idea of their possession style and performance. \
@@ -115,16 +132,6 @@ app.layout = html.Div(
         ]),
 
         html.Div(style={'marginBottom': '60px'}, children=[
-            html.H2('Offense vs Defense'),
-            html.P("Offense vs Defense! We're using stacked bar charts to get a clear view of how players perform in both areas. \
-                   On the defensive side, we're looking at tackles, blocks, and interceptions. \
-                   On the offense, we're focusing on passes. As any fan knows, good passing is what sets up those spectacular goals. \
-                   The stacked bar charts let us easily compare each player's performance, and see where their strengths lie."),
-            add_graph(id='barchart-offense', figure=fig_offense),
-            add_graph(id='barchart-defense', figure=fig_defense),
-        ]),
-
-        html.Div(style={'marginBottom': '60px'}, children=[
             html.H2('Shots to Goals'),
             html.P("Next up, we're going to dive into one of the most thrilling aspects of the game – turning shots into goals. For this, we're using a stacked bar chart, which will really help us to see the ratio of shots taken, shots on target, and goals scored. We're going to lay it all out there, so we can see how successful each team was in making those precious shots count."),
             html.Div(
@@ -139,7 +146,11 @@ app.layout = html.Div(
                       figure=bar_chart_shooting.get_figure(df=bar_chart_shooting.mask_data(mask="Overall")[0], 
                                                            mask_title=bar_chart_shooting.mask_data(mask="Overall")[1])),
         ]),
-
+        
+        html.Div(style={'backgroundColor': '#4F7942','font-size': '1.5em','borderRadius': '5px'}, children=[
+            html.H2('Collectively'),
+        ]),
+        
         html.Div(style={'marginBottom': '60px'}, children=[
             html.H2('Player Performance Heatmap'),
             html.P("We've cooked up a heatmap to give us a clear view of which players turned up the heat and who might've been left out in the cold. \
